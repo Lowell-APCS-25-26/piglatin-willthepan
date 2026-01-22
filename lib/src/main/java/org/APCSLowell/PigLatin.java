@@ -18,19 +18,21 @@ public class PigLatin {
         //postcondition: returns the pig latin equivalent of sWord
         int p = findFirstVowel(sWord);
 
-        
         if( p==0 ){
             return sWord + "way";
         }
-        if( sWord.length()>=2 && sWord.substring(0,2).equals("qu")){
-            return sWord.substring(2) + "quay";
+        if( sWord.substring(0,2).equals("qu")){
+            return sWord.substring(2) + sWord.substring(0,2)+ "ay";
         }
         if (p==-1){
             return sWord +"ay";
         }
+        
+        if( p > 0){
+            return sWord.substring(p) + sWord.substring(0,p) + "ay";
+        }
 
-        return sWord.substring(p) + sWord.substring(0,p) + "a";
-
+        return null;
         
         
     }
